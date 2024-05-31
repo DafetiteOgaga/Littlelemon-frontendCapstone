@@ -1,8 +1,6 @@
 import hero2 from "../llemon_asset/heroPic.jpg"
 import hero1 from "../llemon_asset/greek salad.jpg"
 import styled from "styled-components"
-// import { useContext } from "react"
-// import { BookingContext } from '../component/BookingContext';
 import { useNavigate } from 'react-router-dom';
 
 const specials = {
@@ -22,7 +20,7 @@ const specials = {
 		delivery: "Order a delivery",
 		bookingTitie: 'Reserve a Table for any Occasion',
 	}
-// const bookingVar = '({$booking}) => $booking';
+
 const Section = styled.section``
 const GridContainer = styled.div`
 	display: grid;
@@ -234,6 +232,13 @@ const ButtonBox = styled.div`
 	// @media (max-width: 480px) {
 	// 	height: 10%;
 	// }
+
+	&:hover {
+		background-color: #fddd50;
+	}
+	&:active {
+		background-color: #6e6a52;
+	}
 `
 const Button = styled.button`
 	background-color: transparent;
@@ -253,6 +258,10 @@ const Button = styled.button`
 	// @media (max-width: 480px) {
 	// 	font-size: 50%;
 	// }
+
+	&:active {
+		color: white
+	}
 `
 const Background = styled.div`
 	background-color: #495E57;
@@ -292,10 +301,7 @@ const Background = styled.div`
 `
 export default function Hero (props) {
 	const navigate = useNavigate();
-
 	const submitForm = () => navigate("/booking-page");
-
-	// const { dispatchTimes, setSubmit } = useContext(BookingContext);
 	return (
 		<>
 			<Section>
