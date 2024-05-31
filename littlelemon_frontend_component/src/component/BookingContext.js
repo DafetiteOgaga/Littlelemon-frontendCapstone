@@ -7,7 +7,7 @@ const BookingContext = createContext();
 // initial state
 const initialState = {
   date: new Date(),
-  availableTimes: fetchAPI(new Date())
+  availableTimes: ['--:--', ...fetchAPI(new Date())]
 };
 
 // reducer
@@ -17,7 +17,7 @@ const bookingReducer = (state, action) => {
       const newDate = new Date(action.payload);
       return {
         ...state, date: newDate,
-        availableTimes: fetchAPI(newDate)
+        availableTimes: ['--:--', ...fetchAPI(new Date())]
       };
     default:
       throw new Error('Unknown action type');
