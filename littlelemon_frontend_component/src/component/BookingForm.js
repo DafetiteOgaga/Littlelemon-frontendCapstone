@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import styled from 'styled-components';
 import { BookingContext } from '../component/BookingContext';
 
@@ -74,6 +74,13 @@ const ButtonBox = styled.div`
 	// @media (max-width: 480px) {
 	// 	height: 10%;
 	// }
+
+	&:hover {
+		background-color: #fddd50;
+	}
+	&:active {
+		background-color: #6e6a52;
+	}
 `
 const Button = styled.button`
 	background-color: transparent;
@@ -93,6 +100,10 @@ const Button = styled.button`
 	// @media (max-width: 480px) {
 	// 	font-size: 50%;
 	// }
+
+	&:active {
+		color: white
+	}
 `
 const Background = styled.div`
 	background-color: #495E57;
@@ -162,8 +173,8 @@ const initValues = {
 const currentDate = new Date().toISOString().split("T")[0];
 
 export default function BookingForm (props) {
-
-	const { dispatchTimes, setSubmit } = useContext(BookingContext);
+	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+	const { dispatchTimes, setSubmit, state } = useContext(BookingContext);
 	const [ form, updateForm] = useState(initValues)
 	const handleForm = (e) => {
 		const { name, value } = e.target;
@@ -172,7 +183,6 @@ export default function BookingForm (props) {
 		}))
 	}
 
-	// const handleDateChange = async (e) => {
 	const handleDateChange = (e) => {
 		const { name, value } = e.target
 		updateForm((prevItems) => ({
@@ -184,17 +194,22 @@ export default function BookingForm (props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const submit = form
-		if (submit.date.trim() && submit.time.trim() &&
-			submit.noOfGuests.trim() && submit.occasion.trim() &&
-			submit.selectedOption.trim() && submit.firstname.trim() &&
-			submit.lastname.trim() && submit.contactNumber.trim() &&
-			submit.email.trim()) {
+		console.log(form);
+		if (!isButtonDisabled) {
+			const submit = form
 			setSubmit(submit);
 			props.submitForm(submit);
 			updateForm(initValues);
 			}
 	}
+
+	// Check if all fields are filled
+	useEffect(() => {
+		const allFieldsFilled = Object.values(form)
+				.every(value => value !== "" && value !== 1 && value !== '--:--');
+			setIsButtonDisabled(!allFieldsFilled);
+		}, [form]);
+
 	return (
 		<>
 			<div style={{
@@ -208,25 +223,30 @@ export default function BookingForm (props) {
 						<LightBackground>
 							<Label htmlFor="firstname">First:</Label>
 							<input
+								aria-label="On Click"
 								type="text"
 								value={form.firstname}
 								onChange={handleForm}
 								id="firstname"
 								name="firstname"
 								placeholder="Firstname"
-								autoComplete="given-name">
+								autoComplete="given-name"
+								required>
 								</input>
 						</LightBackground>
 						<LightBackground>
 							<Label htmlFor="lastname">Last:</Label>
 							<input
+								aria-label="On Click"
 								type="text"
 								value={form.lastname}
 								onChange={handleForm}
 								id="lastname"
 								name="lastname"
 								placeholder="Lastname"
-								autoComplete="family-name">
+								autoComplete="family-name"
+								required
+								>
 							</input>
 						</LightBackground>
 					</FlexContainer>
@@ -234,25 +254,30 @@ export default function BookingForm (props) {
 						<LightBackground>
 							<Label htmlFor="contactNumber">Phone:</Label>
 							<input
+								aria-label="On Click"
 								type="tel"
 								value={form.contactNumber}
 								onChange={handleForm}
 								id="contactNumber"
 								name="contactNumber"
-								placeholder="Phone Number"
-								autoComplete="tel">
+								autoComplete="tel"
+								placeholder="123-456-7890"
+								required
+								>
 							</input>
 						</LightBackground>
 						<LightBackground>
 							<Label htmlFor="email">Email:</Label>
 							<input
+								aria-label="On Click"
 								type="email"
 								value={form.email}
 								onChange={handleForm}
 								id="email"
 								name="email"
 								placeholder="Email"
-								autoComplete="email">
+								autoComplete="email"
+								required>
 							</input>
 						</LightBackground>
 					</FlexContainer>
@@ -263,7 +288,9 @@ export default function BookingForm (props) {
 						<LightBackground>
 							<Label htmlFor="res-date">Choose date:</Label>
 							<input
-								required min={currentDate}
+								aria-label="On Click"
+								required
+								min={currentDate}
 								type="date"
 								value={form.date}
 								onChange={handleDateChange}
@@ -274,11 +301,13 @@ export default function BookingForm (props) {
 						<LightBackground>
 							<Label htmlFor="res-time">Choose time:</Label>
 							<select
+								aria-label="On Click"
 								id="res-time"
 								name="time"
 								value={form.time}
+								required
 								onChange={handleForm}>
-									{props.availableTimes.map((times, index) => (
+									{state.availableTimes.map((times, index) => (
 										<option key={index}>
 											{times}
 										</option>
@@ -290,23 +319,25 @@ export default function BookingForm (props) {
 						<LightBackground>
 							<Label htmlFor="guests">Number of guests:</Label>
 							<input
+								aria-label="On Click"
 								type="number"
+								required
 								value={form.noOfGuests}
 								placeholder="0"
 								min="1" max="10"
 								id="guests"
 								name="noOfGuests"
-								// onChange={HandleGuests}
 								onChange={handleForm}>
 							</input>
 						</LightBackground>
 						<LightBackground>
 							<Label htmlFor="occasion">Occasion:</Label>
 							<select
+								aria-label="On Click"
 								id="occasion"
 								name="occasion"
 								value={form.occasion}
-								// onChange={HandleOccassion}
+								required
 								onChange={handleForm}>
 									<option>Select Occasion</option>
 									<option>Birthday</option>
@@ -321,32 +352,33 @@ export default function BookingForm (props) {
 					<RadioInnerDiv>
 						<Label htmlFor="cbox1">Standard</Label>
 							<input
+								aria-label="On Click"
 								type="radio"
 								value="standard"
 								id="cbox1"
+								required
 								name="selectedOption"
 								checked={form.selectedOption === "standard"}
-								// onChange={handleRadioChange}
 								onChange={handleForm}>
 							</input>
 					</RadioInnerDiv>
 					<RadioInnerDiv>
 						<Label $diff htmlFor="cbox2">Outside</Label>
 							<input
+								aria-label="On Click"
 								type="radio"
 								value="outside"
 								id="cbox2"
+								required
 								name="selectedOption"
 								checked={form.selectedOption === "outside"}
-								// onChange={handleRadioChange}
 								onChange={handleForm}>
 							</input>
 					</RadioInnerDiv>
 				</RadioContainer>
 				<ButtonContainer>
 					<ButtonBox>
-						<Button>Make Your reservation</Button>
-						{/* <input type="submit" value="Make Your reservation" /> */}
+						<Button disabled={isButtonDisabled}>Make Your reservation</Button>
 					</ButtonBox>
 				</ButtonContainer>
 			</FormStyle>
