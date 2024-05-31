@@ -129,6 +129,13 @@ import { useNavigate } from 'react-router-dom';
 		// @media (max-width: 480px) {
 		// 	width: 70%;
 		// }
+
+		&:hover {
+			background-color: #fddd50;
+		}
+		&:active {
+			background-color: #6e6a52;
+		}
 	`
 	const Button = styled.button`
 		background-color: transparent;
@@ -151,6 +158,10 @@ import { useNavigate } from 'react-router-dom';
 		// @media (max-width: 480px) {
 		// 	font-size: 80%;
 		// }
+
+		&:active {
+			color: white
+		}
 	`
 	const LightBackground = styled.div`
 		background-color: #EDEFEE;
