@@ -53,170 +53,107 @@ const FlexContainer = styled.div`
 	align-items: ${ ({$NoVertAlign}) => $NoVertAlign ? 'none' : 'center'};
 	padding-top: ${ ({$noPad}) => $noPad ? '8%' : '0'};
 
-	// @media (max-width: 1000px) {
-	// 	padding-top: ${ ({$noPad}) => $noPad ? '8%' : '0'};
-	// }
+	@media (max-width: 1000px) {
+		padding-top: ${ ({$noPad}) => $noPad ? '8%' : '0'};
+	}
 `
 const Image = styled.img`
 	width: ${ ({$hlight}) => $hlight ? '12%' : '70%'};
 	height: ${ ({$hlight}) => $hlight ? '12%' : '140%'};
-	border-radius: ${ ({$curve}) => $curve ? '25%' : '0'};
+	border-radius: ${ ({$curve}) => $curve ? '2rem' : '0'};
 
-	// @media (max-width: 1119px) {
-	// 	width: ${ ({$hlight}) => $hlight ? '11%' : '100%'};
-	// 	height: ${ ({$hlight}) => $hlight ? '11%' : '125%'};
-	// }
-	// @media (max-width: 1000px) {
-	// 	width: ${ ({$hlight}) => $hlight ? '10%' : '100%'};
-	// 	height: ${ ({$hlight}) => $hlight ? '10%' : '125%'};
-	// }
-	// @media (max-width: 740px) {
-	// 	width: ${ ({$hlight}) => $hlight ? '12%' : '70%'};
-	// 	height: ${ ({$hlight}) => $hlight ? '12%' : '125%'};
-	// }
-	// @media (max-width: 642px) {
-	// 	width: ${ ({$hlight}) => $hlight ? '11%' : '70%'};
-	// 	height: ${ ({$hlight}) => $hlight ? '11%' : '125%'};
-	// }
-	// @media (max-width: 597px) {
-	// 	width: ${ ({$hlight}) => $hlight ? '10%' : '70%'};
-	// 	height: ${ ({$hlight}) => $hlight ? '10%' : '125%'};
-	// }
-	// @media (max-width: 480px) {
-	// 	width: ${ ({$hlight}) => $hlight ? '10%' : '100%'};
-	// 	height: ${ ({$hlight}) => $hlight ? '10%' : '130%'};
-	// }
+	@media (max-width: 1119px) {
+		width: ${ ({$hlight}) => $hlight ? '11%' : '100%'};
+		height: ${ ({$hlight}) => $hlight ? '11%' : '125%'};
+	}
+	@media (max-width: 1000px) {
+		width: ${ ({$hlight}) => $hlight ? '10%' : '100%'};
+		height: ${ ({$hlight}) => $hlight ? '10%' : '125%'};
+	}
+	@media (max-width: 740px) {
+		width: ${ ({$hlight}) => $hlight ? '12%' : '70%'};
+		height: ${ ({$hlight}) => $hlight ? '12%' : '125%'};
+	}
+	@media (max-width: 642px) {
+		width: ${ ({$hlight}) => $hlight ? '11%' : '70%'};
+		height: ${ ({$hlight}) => $hlight ? '11%' : '125%'};
+	}
+	@media (max-width: 597px) {
+		width: ${ ({$hlight}) => $hlight ? '10%' : '70%'};
+		height: ${ ({$hlight}) => $hlight ? '10%' : '125%'};
+	}
+	@media (max-width: 480px) {
+		width: ${ ({$hlight}) => $hlight ? '10%' : '100%'};
+		height: ${ ({$hlight}) => $hlight ? '10%' : '130%'};
+	}
 `
 const Head1 = styled.h1`
 	color: white;
-	font-size: 250%;
 	margin-bottom: 4%;
-	margin-top: 0;
-
-	// @media (max-width: 1000px) {
-	// 	font-size: 175%;
-	// }
-	// @media (max-width: 740px) {
-	// 	font-size: 140%;
-	// }
-	// @media (max-width: 480px) {
-	// 	font-size: 100%;
-	// }
 `
 const LightBackground = styled.div`
 	background-color: #EDEFEE;
 	height: 100%;
 	width: 16%;
-	border-radius: 15%;
+	border-radius: 1rem;
 	padding: 1% .5%;
 	margin-right: 1%;
 	margin-left: 1%;
 
-	// @media (max-width: 1000px) {
-	// 	width: 13%;
-	// }
-	// @media (max-width: 740px) {
-	// 	width: 17%;
-	// }
-	// @media (max-width: 480px) {
-	// 	width: 16%;
-	// }
+	@media (max-width: 1000px) {
+		width: 17%;
+	}
+	@media (max-width: 740px) {
+		width: 21%;
+	}
+	@media (max-width: 480px) {
+		width: 24%;
+	}
 `
 const Head3 = styled.h3`
 	margin: 0 0;
-
-	// @media (max-width: 1000px) {
-	// 	font-size: 90%;
-	// }
-	// @media (max-width: 867px) {
-	// 	font-size: 80%;
-	// }
-	// @media (max-width: 777px) {
-	// 	font-size: 75%;
-	// }
-	// @media (max-width: 740px) {
-	// 	font-size: 70%;
-	// }
-	// @media (max-width: 545px) {
-	// 	font-size: 62%;
-	// }
-	// @media (max-width: 484px) {
-	// 	font-size: 50%;
-	// }
-	// @media (max-width: 400px) {
-	// 	font-size: 45%;
-	// }
+	color: #444645;
 `
 const Paragraph = styled.p`
 	margin-top: 0;
-
-	// @media (max-width: 1000px) {
-	// 	font-size: 90%;
-	// }
-	// @media (max-width: 867px) {
-	// 	font-size: 80%;
-	// }
-	// @media (max-width: 777px) {
-	// 	font-size: 75%;
-	// }
-	// @media (max-width: 740px) {
-	// 	font-size: 70%;
-	// }
-	// @media (max-width: 545px) {
-	// 	font-size: 62%;
-	// }
-	// @media (max-width: 550px) {
-	// 	font-size: 60%;
-	// }
-	// @media (max-width: 484px) {
-	// 	font-size: 45%;
-	// }
-	// @media (max-width: 400px) {
-	// 	font-size: 40%;
-	// }
 `
 const Background = styled.div`
-	background-color: #495E57;
 	height: auto;
 	min-height: 10vh; /* Default minimum height */
 	padding-top: 5%;
 	padding-bottom: 5%;
-	// padding-left: 10%;
-	// padding-right: 10%;
 `
 export default function Testimonial () {
 	return (
 		<>
 			<Section>
-				<Background className='App'>
+				<Background className='App main-background'>
 					<FlexContainer>
-						<Head1>Testimonials</Head1>
+						<Head1 className="head1">Testimonials</Head1>
 					</FlexContainer>
 					<FlexContainer>
 					{specials.map((special, index) => (
 						<LightBackground key={index}>
 							<FlexContainer $noPad $noHorAlign>
-								<Head3>Rating:</Head3>
+								<Head3 className="head3">Rating:</Head3>
 								{Array.from({ length: special.rating }).map((_, starIndex) => (
 									<Image key={starIndex} $hlight src={star} alt="star logo" />
 								))}
-								{/* <Head3>Rating:</Head3>
-								<Image hlight src={star} alt="star logo"/> */}
 							</FlexContainer>
-							<FlexContainer style={{justifyContent: 'space-between'}} $noPad $noHorAlign>
+							<FlexContainer style={{gap: '6%'}} $noPad $noHorAlign>
 								<Image
-									$
+									$curve
 									style={{
 										width: '30%',
 										// height: '1%',
 									}}
 									src={special.image} alt="my photo"
 								/>
-								<Head3>{special.remark}</Head3>
+								<Head3 className="head3">{special.remark}</Head3>
 							</FlexContainer>
 							<FlexContainer $NoVertAlign $noHorAlign $vertical $noPad>
-								<Head3>Said:</Head3>
-								<Paragraph>
+								<Head3 className="head3">Said:</Head3>
+								<Paragraph className="paragraph">
 									"{special.description}"
 								</Paragraph>
 							</FlexContainer>
