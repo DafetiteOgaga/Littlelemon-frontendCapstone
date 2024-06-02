@@ -3,6 +3,7 @@ import styled from'styled-components'
 
 const Navigations = styled.nav`
 	list-style-type: none;
+	padding-right: 6%;
 	// grid-column: 2
 	display: flex;
 	text-align: end;
@@ -25,8 +26,8 @@ const Navigations = styled.nav`
 const Anchor = styled.li`
 	flex: 1 1 auto;
 	
-	// text-align: center;
-	// padding: 1%;
+	text-align: center;
+	padding: 2%;
 	text-decoration: none;
 `
 
@@ -34,11 +35,11 @@ export default function Navigation () {
 	return (
 		<>
 			<Navigations>
-				<Anchor><Link to="/">Home</Link></Anchor>
-				<Anchor><Link to="/booking-page">Bookings</Link></Anchor>
-				<Anchor><Link to="/about">About</Link></Anchor>
-				<Anchor><Link to="/testimonial">Testimonial</Link></Anchor>
-				<Anchor><Link to="/contact">Contact</Link></Anchor>
+				<Anchor><Link to="/" className='head3'>Home</Link></Anchor>
+				<Anchor><Link to="/booking-page" className='head3'>Bookings</Link></Anchor>
+				<Anchor><Link to="/about" className='head3'>About</Link></Anchor>
+				<Anchor><Link to="/testimonial" className='head3'>Testimonial</Link></Anchor>
+				<Anchor><Link to="/contact" className='head3'>Contact</Link></Anchor>
 			</Navigations>
 		</>
 	)
