@@ -5,41 +5,8 @@ import styled from "styled-components";
 const Background = styled.div`
 	background-color: #495E57;
 	color: white;
-	// color: #F4CE14;
-	border-radius: 2%;
-	// height: auto;
-	// min-height: 10vh; /* Default minimum height */
-	padding-top: 1%;
-	padding-bottom: 2%;
-	// padding-left: 10%;
-	// padding-right: 10%;
-	// display: ${ ({$booking}) => $booking ? 'grid' : 'flex'};
-	// justify-content: center;
-
-	// @media (max-width: 1000px) {
-	// 	padding-bottom:0;
-	// 	// padding-left: 10%;
-	// 	// padding-right: 10%;
-	// }
-	// @media (max-width: 887px) {
-	// 	// padding-bottom:4%;
-	// }
-	// @media (max-width: 825px) {
-	// 	// padding-bottom:8%;
-	// }
-	// @media (max-width: 740px) {
-	// 	padding-top: 4%;
-	// 	padding-bottom: 0;
-	// }
-	// @media (max-width: 655px) {
-	// 	// padding-bottom: 3%;
-	// }
-	// @media (max-width: 480px) {
-	// 	padding-top: 4%;
-	// 	padding-bottom: 4%;
-	// 	// padding-left: 10%;
-	// 	// padding-right: 10%;
-	// }
+	border-radius: 1.9rem;
+	padding: 3% 1.5%;
 `
 const SpanText = styled.span`
 	color: #F4CE14;
@@ -49,17 +16,15 @@ export default function ConfirmedBooking(props) {
 	const { submit } = useContext(BookingContext);
     return (
 		<>
-			<div className='App'>
+			<div className='App head3'>
 				<Background style={{
 					textAlign: 'center'
 				}}>
-					<h1><SpanText>Booking Confirmed!!!</SpanText></h1>
-					<h2>Please provide your name and contact number at the reception upon arrival</h2>
-					<h2>We are excited to serve you</h2>
+					<h1 className="head1"><SpanText>Booking Confirmed!!!</SpanText></h1>
+					<h2 style={{ color: "white"}} className="head2">Please provide your name and contact number at the reception upon arrival</h2>
+					<h2 style={{ color: "white"}} className="head2">We are excited to serve you</h2>
 					<div style={{
 						display: 'grid',
-						// justifyContent: 'center',
-						// alignItems: 'center',
 						gridTemplateColumns: '1fr 1fr',
 						gridGap: '2%',
 						padding: '10px',
